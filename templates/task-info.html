@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        body {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        table {
+            border: 1px solid #ccc;
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        table tr {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        h3 {
+            text-align: right;
+        }
+        a { text-decoration:none}
+
+    </style>
+</head>
+<body>
+    <h1>任务信息</h1>
+    <table>
+        <thead>
+        <tr style="background-color: #E6EBF5">
+            <td>taskId</td>
+            <td>任务标题</td>
+            <td>任务状态</td>
+            <td>申请人</td>
+            <td>处理人</td>
+            <td>授权人</td>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ data.task_id }}</td>
+            <td>{{ data.task_name }}</td>
+            {% if data.task_state == 1 %}
+                <td>审核中</td>
+            {% elif data.task_state == 2 %}
+                <td>审核未通过</td>
+            {% elif data.task_state == 3 %}
+                <td>审核完成</td>
+            {% else %}
+                <td>已完成</td>
+            {% endif %}
+            <td>{{ data.create__user_name }}</td>
+            <td>{{ data.execute__user_name }}</td>
+            <td>{{ data.authorizer__user_name }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <table>
+        <thead>
+            <tr style="background-color: #E6EBF5">
+                <td>任务详情</td>
+                <td>拒绝授权理由</td>
+                <td>创建时间</td>
+                <td>完成时间</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ data.task_info }}</td>
+                <td>{{ data.remarks }}</td>
+                <td>{{ data.created_date }}</td>
+                <td>{{ data.modify_date }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3><a href="http://172.28.5.50:8010">点击登录系统操作</a> </h3>
+</body>
+</html>
