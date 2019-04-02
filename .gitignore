@@ -117,6 +117,3 @@ dmypy.json
 
 #PyCharm 
 .idea/
-
-#settings
-devops/settings.py
