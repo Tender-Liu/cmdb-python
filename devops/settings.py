@@ -157,6 +157,6 @@ Email = {
 
 
 #: Zabbix配置详情
-zabbix_host_url = 'https://zabbix.jollychic.com'
-zabbix_username = 'tender'
-zabbix_password = 'tender123'
+zabbix_host_url = 'zabbix服务地址'
+zabbix_username = '账号'
+zabbix_password = '密码'
